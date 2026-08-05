@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reza Bakhshi RBK — Music Producer</title>
+<link rel="icon" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#08070c;
+    --bg-panel:#0f0e16;
+    --bg-card:#131220;
+    --line:rgba(255,255,255,0.08);
+    --violet:#9b5cff;
+    --violet-soft:#c9aaff;
+    --violet-dim:rgba(155,92,255,0.15);
+    --text:#f2f0f7;
+    --text-dim:#a6a2b8;
+    --text-faint:#615c78;
+    --font-display:'Space Grotesk',sans-serif;
+    --font-body:'Inter',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.5;
+    overflow-x:hidden;
+    padding-bottom:92px;
+  }
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--violet);color:#fff;}
+
+  /* ambient glow background */
+  .ambient{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(650px 500px at 78% 8%, rgba(155,92,255,0.16), transparent 60%),
+      radial-gradient(500px 400px at 15% 60%, rgba(155,92,255,0.08), transparent 60%);
+  }
+
+  /* ===== NAV ===== */
+  header{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 40px;
+    background:rgba(8,7,12,0.75);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand img{width:38px;height:38px;border-radius:9px;object-fit:cover;}
+  .brand-name{font-family:var(--font-display);font-weight:700;letter-spacing:1px;font-size:15px;}
+  nav.links{display:flex;gap:36px;}
+  nav.links a{
+    font-size:13px;letter-spacing:1.5px;color:var(--text-dim);
+    padding-bottom:6px;border-bottom:2px solid transparent;
+    transition:color .2s ease, border-color .2s ease;
+  }
+  nav.links a.active,nav.links a:hover{color:#fff;border-color:var(--violet);}
+  .socials{display:flex;gap:16px;align-items:center;}
+  .socials a{width:34px;height:34px;border:1px solid var(--line);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--text-dim);transition:.2s;}
+  .socials a:hover{color:#fff;border-color:var(--violet);background:var(--violet-dim);}
+  .socials svg{width:16px;height:16px;}
+  .burger{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;}
+
+  @media (max-width:900px){
+    nav.links{position:fixed;top:74px;left:0;right:0;background:var(--bg-panel);flex-direction:column;gap:0;
+      transform:translateY(-140%);transition:transform .3s ease;border-bottom:1px solid var(--line);}
+    nav.links.open{transform:translateY(0);}
+    nav.links a{padding:16px 40px;border-bottom:1px solid var(--line);width:100%;}
+    .burger{display:block;}
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;z-index:1;
+    display:grid;grid-template-columns:1fr 1fr;gap:20px;
+    padding:70px 40px 40px;
+    align-items:center;
+  }
+  .hero-copy .eyebrow{color:var(--violet-soft);font-size:13px;letter-spacing:3px;font-family:var(--font-display);}
+  .hero-copy h1{
+    font-family:var(--font-display);font-weight:700;
+    font-size:clamp(42px,6vw,74px);line-height:1.02;margin:10px 0 4px;
+    letter-spacing:-1px;
+  }
+  .hero-copy h1 span{color:var(--violet);}
+  .hero-copy .role{color:var(--text-dim);font-size:15px;letter-spacing:3px;margin:18px 0 34px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 26px;border-radius:999px;border:1px solid var(--violet);
+    background:var(--violet-dim);color:#fff;font-weight:600;font-size:14px;
+    cursor:pointer;transition:.2s;
+  }
+  .btn:hover{background:var(--violet);box-shadow:0 0 30px rgba(155,92,255,0.5);}
+  .btn svg{width:14px;height:14px;fill:currentColor;}
+
+  .hero-art{position:relative;display:flex;justify-content:center;align-items:center;}
+  .hero-art img{
+    width:min(480px,90%);border-radius:24px;filter:drop-shadow(0 0 60px rgba(155,92,255,0.25));
+    animation:float 7s ease-in-out infinite;
+  }
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+  .now-playing{
+    position:absolute;right:0;bottom:-10px;width:230px;
+    background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:16px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.5);
+  }
+  .now-playing .label{font-size:10px;letter-spacing:2px;color:var(--text-faint);margin-bottom:10px;}
+  .np-row{display:flex;gap:10px;align-items:center;}
+  .np-row img{width:44px;height:44px;border-radius:8px;object-fit:cover;}
+  .np-title{font-size:13px;font-weight:600;}
+  .np-artist{font-size:11px;color:var(--text-dim);}
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;text-align:center;padding-top:40px;}
+    .hero-copy .role{margin:14px auto 26px;}
+    .now-playing{position:static;margin:20px auto 0;}
+  }
+
+  /* ===== SECTION HEADS ===== */
+  .section{position:relative;z-index:1;padding:70px 40px;}
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:10px;}
+  .section-head h2{font-family:var(--font-display);font-size:26px;letter-spacing:1px;}
+  .section-head .sub{color:var(--text-faint);font-size:13px;}
+
+  /* ===== RELEASES ===== */
+  .track-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:22px;}
+  .track-card{
+    background:var(--bg-card);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    transition:transform .25s ease,border-color .25s ease;cursor:pointer;
+  }
+  .track-card:hover{transform:translateY(-6px);border-color:var(--violet);}
+  .track-cover{
+    aspect-ratio:1/1;position:relative;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(160deg,var(--cover1,#3a2a66),var(--cover2,#120f22));
+  }
+  .track-cover::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(255,255,255,0.12),transparent 60%);}
+  .track-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .play-dot{
+    width:44px;height:44px;border-radius:50%;background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.3);
+    display:flex;align-items:center;justify-content:center;z-index:2;transition:.2s;
+  }
+  .track-card:hover .play-dot{background:var(--violet);border-color:var(--violet);}
+  .play-dot svg{width:14px;height:14px;fill:#fff;}
+  .track-info{padding:14px 16px;display:flex;justify-content:space-between;align-items:center;}
+  .track-info .name{font-size:14px;font-weight:600;}
+  .track-info .artist{font-size:11px;color:var(--text-dim);}
+  .track-info .len{font-size:11px;color:var(--text-faint);}
+
+  /* ===== ABOUT ===== */
+  .about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+  .about-wrap .eyebrow{color:var(--violet-soft);font-size:12px;letter-spacing:3px;margin-bottom:14px;}
+  .about-wrap p{color:var(--text-dim);font-size:15px;max-width:480px;margin-bottom:26px;}
+  .about-art{
+    aspect-ratio:16/11;border-radius:20px;
+    background:radial-gradient(circle at 60% 40%,var(--violet-dim),transparent 70%),var(--bg-card);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .about-art img{width:55%;filter:drop-shadow(0 0 40px rgba(155,92,255,0.3));}
+  @media (max-width:900px){.about-wrap{grid-template-columns:1fr;}}
+
+  /* ===== VIDEOS ===== */
+  .video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;}
+  .video-card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--bg-card);}
+  .video-card .frame-wrap{position:relative;aspect-ratio:16/9;background:#000;}
+  .video-card video{width:100%;height:100%;display:block;}
+  .video-card .vt{padding:12px 16px;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+
+  .dl-btn{
+    flex-shrink:0;width:28px;height:28px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--line);color:var(--text-dim);
+    transition:.2s;
+  }
+  .dl-btn svg{width:14px;height:14px;fill:currentColor;}
+  .dl-btn:hover{color:#fff;border-color:var(--violet);background:var(--violet-dim);}
+
+  /* ===== CONTACT ===== */
+  .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;}
+  .contact-wrap form{display:flex;flex-direction:column;gap:14px;}
+  .contact-wrap input,.contact-wrap textarea{
+    background:var(--bg-card);border:1px solid var(--line);border-radius:10px;
+    padding:14px 16px;color:#fff;font-family:var(--font-body);font-size:14px;
+  }
+  .contact-wrap textarea{min-height:120px;resize:vertical;}
+  .contact-wrap input:focus,.contact-wrap textarea:focus{outline:2px solid var(--violet);border-color:transparent;}
+  .contact-side{display:flex;flex-direction:column;justify-content:center;gap:18px;}
+  .contact-side .eyebrow{color:var(--violet-soft);font-size:12px;letter-spacing:3px;}
+  .contact-side p{color:var(--text-dim);font-size:15px;}
+  @media (max-width:900px){.contact-wrap{grid-template-columns:1fr;}}
+
+  footer{
+    position:relative;z-index:1;text-align:center;padding:30px;color:var(--text-faint);font-size:12px;
+    border-top:1px solid var(--line);
+  }
+
+  /* ===== STICKY PLAYER ===== */
+  .player{
+    position:fixed;bottom:0;left:0;right:0;z-index:60;height:80px;
+    background:rgba(10,9,15,0.9);backdrop-filter:blur(16px);
+    border-top:1px solid var(--line);
+    display:flex;align-items:center;gap:20px;padding:0 24px;
+  }
+  .player .p-track{display:flex;align-items:center;gap:12px;width:220px;flex-shrink:0;}
+  .player .p-track img{width:46px;height:46px;border-radius:8px;}
+  .player .p-title{font-size:13px;font-weight:600;}
+  .player .p-artist{font-size:11px;color:var(--text-dim);}
+  .player-heart{margin-left:6px;background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:16px;}
+  .player-heart.on{color:var(--violet);}
+
+  .p-center{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0;}
+  .p-controls{display:flex;align-items:center;gap:18px;}
+  .p-controls button{background:none;border:none;color:var(--text);cursor:pointer;display:flex;align-items:center;}
+  .p-controls svg{width:16px;height:16px;fill:currentColor;}
+  .p-play{width:38px;height:38px;border-radius:50%;background:var(--violet);display:flex;align-items:center;justify-content:center;}
+  .p-play svg{width:14px;height:14px;}
+  .p-seek{display:flex;align-items:center;gap:10px;width:100%;max-width:520px;}
+  .p-seek span{font-size:11px;color:var(--text-faint);width:36px;}
+  .p-seek input[type=range]{flex:1;}
+
+  input[type=range]{
+    -webkit-appearance:none;height:4px;background:var(--line);border-radius:2px;
+  }
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:var(--violet);cursor:pointer;
+  }
+
+  .p-right{display:flex;align-items:center;gap:10px;width:120px;justify-content:flex-end;flex-shrink:0;}
+  .p-right svg{width:14px;height:14px;fill:var(--text-dim);}
+  .p-right input[type=range]{width:70px;}
+
+  @media (max-width:760px){
+    .p-track{width:auto;}
+    .p-right{display:none;}
+    .p-seek{max-width:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<header>
+  <div class="brand">
+    <img src="logo.jpg" alt="Reza Bakhshi RBK logo">
+    <span class="brand-name">REZA.BAKHSHI.RBK</span>
+  </div>
+  <nav class="links" id="navLinks">
+    <a href="#home" class="active">HOME</a>
+    <a href="#music">MUSIC</a>
+    <a href="#videos">VIDEOS</a>
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:18px;">
+    <div class="socials">
+      <a href="https://instagram.com/reza.bakhshi.rbk" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+      <a href="https://t.me/reza_bakhshi_rbk" target="_blank" aria-label="Telegram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.7 11.9c-1.1.45-1.1 1.06-.2 1.34l4.8 1.5 1.9 5.6c.2.6.6.8 1.1.4l2.6-2.2 4.7 3.5c.9.5 1.5.24 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.6Z"/></svg>
+      </a>
+      <a href="https://youtube.com/@reza.bakhshi.rbk" target="_blank" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.4-.4-5a3 3 0 0 0-2.1-2.1C17.9 4.5 12 4.5 12 4.5s-5.9 0-7.5.4A3 3 0 0 0 2.4 7C2 8.6 2 12 2 12s0 3.4.4 5a3 3 0 0 0 2.1 2.1c1.6.4 7.5.4 7.5.4s5.9 0 7.5-.4A3 3 0 0 0 21.6 17c.4-1.6.4-5 .4-5ZM10 15.5v-7l6 3.5Z"/></svg>
+      </a>
+    </div>
+    <button class="burger" id="burger" aria-label="menu">☰</button>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-copy">
+    <div class="eyebrow">MUSIC · TECHNOLOGY · EMOTION</div>
+    <h1>REZA <span>BAKHSHI</span><br>RBK</h1>
+    <div class="role">MUSIC PRODUCER · COMPOSER · ARTIST</div>
+    <button class="btn" id="heroPlayBtn">
+      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      PLAY LATEST TRACK
+    </button>
+  </div>
+  <div class="hero-art">
+    <img src="logo.jpg" alt="Reza Bakhshi RBK artwork">
+    <div class="now-playing">
+      <div class="label">NOW PLAYING</div>
+      <div class="np-row">
+        <img src="logo.jpg" alt="cover">
+        <div>
+          <div class="np-title" id="npTitle">Moonlight</div>
+          <div class="np-artist">Reza Bakhshi RBK</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="music">
+  <div class="section-head">
+    <h2>Latest Releases</h2>
+    <span class="sub">tap a cover to play</span>
+  </div>
+  <div class="track-grid" id="trackGrid"></div>
+</section>
+
+<section class="section" id="about">
+  <div class="about-wrap">
+    <div class="about-art"><img src="logo.jpg" alt="Reza Bakhshi RBK"></div>
+    <div>
+      <div class="eyebrow">ABOUT REZA BAKHSHI RBK</div>
+      <p>An independent music producer and composer crafting emotional, cinematic and electronic soundscapes — blending technology with feeling. Every release starts as a moving image before it becomes a song.</p>
+      <a href="#contact" class="btn">GET IN TOUCH</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="videos">
+  <div class="section-head">
+    <h2>Videos</h2>
+    <span class="sub">tap a video to play, or use the download icon</span>
+  </div>
+  <div class="video-grid" id="videoGrid"></div>
+</section>
+
+<section class="section" id="contact">
+  <div class="contact-wrap">
+    <div class="contact-side">
+      <div class="eyebrow">CONTACT</div>
+      <h2 style="font-family:var(--font-display);font-size:30px;">Let's work together</h2>
+      <p>For collaborations, licensing, or just to say hi — send a message and I'll reply by email.</p>
+    </div>
+    <form action="https://formsubmit.co/YOUR-EMAIL@example.com" method="POST">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="message" placeholder="Your message" required></textarea>
+      <button class="btn" type="submit" style="align-self:flex-start;">SEND MESSAGE</button>
+    </form>
+  </div>
+</section>
+
+<footer>© <span id="year"></span> Reza Bakhshi RBK. All rights reserved.</footer>
+
+<!-- Sticky player -->
+<div class="player">
+  <div class="p-track">
+    <img id="playerCover" src="logo.jpg" alt="cover">
+    <div>
+      <div class="p-title" id="playerTitle">Moonlight</div>
+      <div class="p-artist">Reza Bakhshi RBK</div>
+    </div>
+    <button class="player-heart" id="heartBtn" aria-label="like">♡</button>
+  </div>
+  <div class="p-center">
+    <div class="p-controls">
+      <button id="prevBtn" aria-label="previous"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg></button>
+      <button class="p-play" id="playBtn" aria-label="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+      <button id="nextBtn" aria-label="next"><svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z"/></svg></button>
+    </div>
+    <div class="p-seek">
+      <span id="curTime">0:00</span>
+      <input type="range" id="seek" value="0" min="0" max="100" step="0.1">
+      <span id="durTime">0:00</span>
+    </div>
+  </div>
+  <div class="p-right">
+    <svg viewBox="0 0 24 24"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
+    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.8">
+  </div>
+</div>
+<audio id="audio"></audio>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---- burger menu ---- */
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+/* ---- active nav link on scroll ---- */
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = 'home';
+  sections.forEach(sec => {
+    if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+
+/* =========================================================
+   EDIT THIS LIST to add your own tracks.
+   src: EITHER a full link (like your reza-board worker link)
+   OR a relative path to a file sitting next to index.html,
+   e.g. "music/moonlight.mp3" (put the actual file in a
+   "music" folder beside this html file). Both work the same.
+   cover: optional path to a real image for the cover, e.g.
+   "covers/moonlight.jpg". Leave it out to use the color gradient.
+========================================================= */
+const TRACKS = [
+  { title: "Moonlight", src: "music/08_Shahzadeye Beraheh pa.mp3", cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAOLaTEjhksjsCk5glVxAQrw31g5EfgAAhULaxtxxYlRib74xFOm1wMBAAMCAANzAAM2BA/photos/file_162.jpg", cover1:"#5b3aa8", cover2:"#150f27", duration: "03:28" },{ title: "Moonlight", src: "music/08_Shahzadeye Beraheh pa.mp3", cover: "", cover1:"#5b3aa8", cover2:"#150f27", duration: "03:28" },
+	{ title: "Moonlight", src: "music/08_Shahzadeye Beraheh pa.mp3", cover: "", cover1:"#5b3aa8", cover2:"#150f27", duration: "03:28" },
+	{ title: "Moonlight", src: "music/08_Shahzadeye Beraheh pa.mp3", cover: "", cover1:"#5b3aa8", cover2:"#150f27", duration: "03:28" },
+	{ title: "Moonlight", src: "music/08_Shahzadeye Beraheh pa.mp3", cover: "", cover1:"#5b3aa8", cover2:"#150f27", duration: "03:28" },
+  { title: "Eclipse",   src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPHanLqb-81w_DU-UYQrzu7ftMuedgAAi4LAAKozs1QsJvg3gP4tQo9BA/music/file_240.mp3", cover: "https://search.eitaa.com/?url=https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAPLanLyzLfapyzhZgE_pXgJBJXDc2sAAukOaxtkY5lTQqHhj1cFJb0BAAMCAAN4AAM9BA/photos/file_245.jpg", cover1:"#3a2a66", cover2:"#0e0c19", duration: "04:12" },
+  { title: "Beyond22",    src: "music/08_Shahzadeye Beraheh pa.mp3", cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAOLaTEjhksjsCk5glVxAQrw31g5EfgAAhULaxtxxYlRib74xFOm1wMBAAMCAANzAAM2BA/photos/file_162.jpg", cover1:"#7047c9", cover2:"#171226", duration: "03:54" },
+  { title: "Aurora",    src: "", cover: "", cover1:"#4b2f8f", cover2:"#120e20", duration: "02:59" }
+];
+
+/* =========================================================
+   EDIT THIS LIST to add your own videos.
+   src: EITHER a full link (like your reza-board worker link)
+   OR a relative path to a file sitting next to index.html,
+   e.g. "videos/moonlight.mp4" (put the actual file in a
+   "videos" folder beside this html file). Both work the same.
+========================================================= */
+const VIDEOS = [
+  { title: "Moonlight — Official Video", src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/BAACAgQAAxkBAAPJanLq_md-qObN8ifFPvADmZO3hKoAAr0LAAJlzXxTrU8jU9wDOmg9BA/videos/file_242.mp4" },
+  { title: "Eclipse — Visualizer", src: "" },
+  { title: "Beyond — Behind the Scenes", src: "" }
+];
+
+/* ---- render track grid ---- */
+const trackGrid = document.getElementById('trackGrid');
+TRACKS.forEach((t, i) => {
+  const card = document.createElement('div');
+  card.className = 'track-card';
+  card.style.setProperty('--cover1', t.cover1);
+  card.style.setProperty('--cover2', t.cover2);
+  card.innerHTML = `
+    <div class="track-cover">
+      ${t.cover ? `<img src="${t.cover}" alt="${t.title} cover">` : ''}
+      <div class="play-dot"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+    </div>
+    <div class="track-info">
+      <div>
+        <div class="name">${t.title}</div>
+        <div class="artist">Reza Bakhshi RBK</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="len">${t.duration}</div>
+        <a class="dl-btn" href="${t.src}" download title="Download" aria-label="Download ${t.title}">
+          <svg viewBox="0 0 24 24"><path d="M12 3v10.6l3.3-3.3 1.4 1.4L12 17l-4.7-5.3 1.4-1.4 3.3 3.3V3zM5 19h14v2H5z"/></svg>
+        </a>
+      </div>
+    </div>`;
+  card.querySelector('.track-cover').addEventListener('click', () => playTrack(i));
+  card.querySelector('.dl-btn').addEventListener('click', e => e.stopPropagation());
+  trackGrid.appendChild(card);
+});
+
+/* ---- render video grid ---- */
+const videoGrid = document.getElementById('videoGrid');
+VIDEOS.forEach(v => {
+  const card = document.createElement('div');
+  card.className = 'video-card';
+  card.innerHTML = `
+    <div class="frame-wrap">
+      <video src="${v.src}" controls preload="metadata"></video>
+    </div>
+    <div class="vt">
+      <span>${v.title}</span>
+      <a class="dl-btn" href="${v.src}" download title="Download" aria-label="Download ${v.title}">
+        <svg viewBox="0 0 24 24"><path d="M12 3v10.6l3.3-3.3 1.4 1.4L12 17l-4.7-5.3 1.4-1.4 3.3 3.3V3zM5 19h14v2H5z"/></svg>
+      </a>
+    </div>`;
+  videoGrid.appendChild(card);
+});
+
+/* ---- player logic ---- */
+const audio = document.getElementById('audio');
+const playBtn = document.getElementById('playBtn');
+const heroPlayBtn = document.getElementById('heroPlayBtn');
+const seek = document.getElementById('seek');
+const curTime = document.getElementById('curTime');
+const durTime = document.getElementById('durTime');
+const volume = document.getElementById('volume');
+const heartBtn = document.getElementById('heartBtn');
+let current = 0;
+let liked = false;
+
+function fmt(s){
+  if (!isFinite(s)) return "0:00";
+  const m = Math.floor(s/60), sec = Math.floor(s%60);
+  return m + ":" + String(sec).padStart(2,'0');
+}
+
+function playTrack(i){
+  current = i;
+  const t = TRACKS[i];
+  document.getElementById('playerTitle').textContent = t.title;
+  document.getElementById('npTitle').textContent = t.title;
+  if (t.src){
+    audio.src = t.src;
+    audio.play().catch(()=>{});
+    setPlayIcon(true);
+  } else {
+    setPlayIcon(false);
+    alert("این آهنگ هنوز فایل ندارد. یک فایل mp3 به پوشه tracks اضافه کن و مسیرش را در لیست TRACKS داخل کد بنویس.");
+  }
+}
+
+function setPlayIcon(isPlaying){
+  playBtn.innerHTML = isPlaying
+    ? '<svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>'
+    : '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+}
+
+playBtn.addEventListener('click', () => {
+  if (!audio.src){ playTrack(current); return; }
+  if (audio.paused){ audio.play(); setPlayIcon(true); }
+  else { audio.pause(); setPlayIcon(false); }
+});
+
+heroPlayBtn.addEventListener('click', () => playTrack(0));
+
+document.getElementById('nextBtn').addEventListener('click', () => playTrack((current+1) % TRACKS.length));
+document.getElementById('prevBtn').addEventListener('click', () => playTrack((current-1+TRACKS.length) % TRACKS.length));
+
+audio.addEventListener('timeupdate', () => {
+  if (!audio.duration) return;
+  seek.value = (audio.currentTime / audio.duration) * 100;
+  curTime.textContent = fmt(audio.currentTime);
+  durTime.textContent = fmt(audio.duration);
+});
+seek.addEventListener('input', () => {
+  if (audio.duration) audio.currentTime = (seek.value/100) * audio.duration;
+});
+volume.addEventListener('input', () => audio.volume = volume.value);
+audio.volume = 0.8;
+
+heartBtn.addEventListener('click', () => {
+  liked = !liked;
+  heartBtn.textContent = liked ? '♥' : '♡';
+  heartBtn.classList.toggle('on', liked);
+});
+</script>
+</body>
+</html>
