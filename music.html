@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Library — Reza Bakhshi RBK</title>
+<link rel="icon" href="logo.jpg">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<header>
+  <div class="brand">
+    <img src="logo.jpg" alt="Reza Bakhshi RBK logo">
+    <span class="brand-name">REZA.BAKHSHI.RBK</span>
+  </div>
+  <nav class="links" id="navLinks">
+    <a href="index.html">HOME</a>
+    <a href="music.html" class="active">MUSIC</a>
+    <a href="videos.html">VIDEOS</a>
+    <a href="index.html#about">ABOUT</a>
+    <a href="index.html#contact">CONTACT</a>
+    <div class="mobile-socials">
+      <a href="https://instagram.com/reza.bakhshi.rbk" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+      <a href="https://t.me/reza_bakhshi_rbk" target="_blank" aria-label="Telegram">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M21.5 4.5 2.7 11.9c-1.1.45-1.1 1.06-.2 1.34l4.8 1.5 1.9 5.6c.2.6.6.8 1.1.4l2.6-2.2 4.7 3.5c.9.5 1.5.24 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.6Z"/></svg>
+      </a>
+      <a href="https://youtube.com/@reza.bakhshi.rbk" target="_blank" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M22 12s0-3.4-.4-5a3 3 0 0 0-2.1-2.1C17.9 4.5 12 4.5 12 4.5s-5.9 0-7.5.4A3 3 0 0 0 2.4 7C2 8.6 2 12 2 12s0 3.4.4 5a3 3 0 0 0 2.1 2.1c1.6.4 7.5.4 7.5.4s5.9 0 7.5-.4A3 3 0 0 0 21.6 17c.4-1.6.4-5 .4-5ZM10 15.5v-7l6 3.5Z"/></svg>
+      </a>
+    </div>
+  </nav>
+  <div style="display:flex;align-items:center;gap:18px;">
+    <div class="socials">
+      <a href="https://instagram.com/reza.bakhshi.rbk" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+      <a href="https://t.me/reza_bakhshi_rbk" target="_blank" aria-label="Telegram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.7 11.9c-1.1.45-1.1 1.06-.2 1.34l4.8 1.5 1.9 5.6c.2.6.6.8 1.1.4l2.6-2.2 4.7 3.5c.9.5 1.5.24 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.6Z"/></svg>
+      </a>
+      <a href="https://youtube.com/@reza.bakhshi.rbk" target="_blank" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.4-.4-5a3 3 0 0 0-2.1-2.1C17.9 4.5 12 4.5 12 4.5s-5.9 0-7.5.4A3 3 0 0 0 2.4 7C2 8.6 2 12 2 12s0 3.4.4 5a3 3 0 0 0 2.1 2.1c1.6.4 7.5.4 7.5.4s5.9 0 7.5-.4A3 3 0 0 0 21.6 17c.4-1.6.4-5 .4-5ZM10 15.5v-7l6 3.5Z"/></svg>
+      </a>
+    </div>
+    <button class="burger" id="burger" aria-label="menu">☰</button>
+  </div>
+</header>
+
+<div class="page-hero">
+  <a href="index.html" class="back-link">
+    <svg viewBox="0 0 24 24"><path d="M20 11H7.8l4.6-4.6L11 5l-7 7 7 7 1.4-1.4L7.8 13H20z"/></svg>
+    بازگشت به صفحه اصلی
+  </a>
+  <div class="eyebrow">FULL MUSIC LIBRARY</div>
+  <h1>کتابخانه کامل موزیک</h1>
+  <p>همه‌ی آهنگ‌ها، دسته‌بندی‌شده — هر چیزی که دنبالشی رو از اینجا پیدا کن.</p>
+</div>
+
+<section class="section" id="music" style="padding-top:20px;">
+  <div class="cat-tabs" id="catTabs"></div>
+  <div class="track-grid" id="trackGrid"></div>
+</section>
+
+<footer>© <span id="year"></span> Reza Bakhshi RBK. All rights reserved.</footer>
+
+<!-- Sticky player -->
+<div class="player">
+  <div class="p-track">
+    <img id="playerCover" src="logo.jpg" alt="cover">
+    <div>
+      <div class="p-title" id="playerTitle">—</div>
+      <div class="p-artist" id="playerArtist">Reza Bakhshi RBK</div>
+    </div>
+    <button class="player-heart" id="heartBtn" aria-label="like">♡</button>
+  </div>
+  <div class="p-center">
+    <div class="p-controls">
+      <button id="prevBtn" aria-label="previous"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg></button>
+      <button class="p-play" id="playBtn" aria-label="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+      <button id="nextBtn" aria-label="next"><svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z"/></svg></button>
+    </div>
+    <div class="p-seek">
+      <span id="curTime">0:00</span>
+      <input type="range" id="seek" value="0" min="0" max="100" step="0.1">
+      <span id="durTime">0:00</span>
+    </div>
+  </div>
+  <div class="p-right">
+    <svg viewBox="0 0 24 24"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
+    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.8">
+  </div>
+</div>
+<audio id="audio"></audio>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---- burger menu ---- */
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+/* =========================================================
+   THE FULL MUSIC LIBRARY. Add as many tracks as you want here.
+
+   src: EITHER a full link (like your reza-board worker link)
+   OR a relative path to a file next to this html file, e.g.
+   "music/track1.mp3" (put the actual file in a "music" folder).
+   cover: optional path to a real image, e.g. "covers/track1.jpg".
+   Leave it "" to use the color gradient instead.
+   artist: the text shown under the track title — edit freely.
+   category: must match one of the "key" values in CATEGORIES
+   below (e.g. "travel", "remix", "old", "chill").
+========================================================= */
+const CATEGORIES = [
+  { key: "all",    label: "همه" },
+  { key: "travel", label: "سفر" },
+  { key: "remix",  label: "ریمیکس" },
+  { key: "old",    label: "قدیمی" },
+  { key: "me",    label: "من" },
+  { key: "chill",  label: "آرامش‌بخش" }
+	
+];
+
+const TRACKS = [
+  { title: "Moonlight", artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#5b3aa8", cover2:"#150f27", duration: "03:28", category: "travel" },
+  { title: "Eclipse",   artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "04:12", category: "remix" },
+  { title: "Beyond",    artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#7047c9", cover2:"#171226", duration: "03:54", category: "old" },
+  { title: "Aurora",    artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#4b2f8f", cover2:"#120e20", duration: "02:59", category: "chill" },
+  { title: "Track 5",   artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#5b3aa8", cover2:"#150f27", duration: "00:00", category: "travel" },
+  { title: "Track 6",   artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+  { title: "Track 7",   artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#7047c9", cover2:"#171226", duration: "00:00", category: "old" },
+  { title: "Track 8",   artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#4b2f8f", cover2:"#120e20", duration: "00:00", category: "chill" },
+  { title: "Track 9",   artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#5b3aa8", cover2:"#150f27", duration: "00:00", category: "travel" },
+  { title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" }
+];
+
+/* ---- category tabs ---- */
+const catTabs = document.getElementById('catTabs');
+let activeCat = 'all';
+CATEGORIES.forEach(c => {
+  const btn = document.createElement('button');
+  btn.className = 'cat-tab' + (c.key === 'all' ? ' active' : '');
+  btn.textContent = c.label;
+  btn.addEventListener('click', () => {
+    activeCat = c.key;
+    catTabs.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderTracks();
+  });
+  catTabs.appendChild(btn);
+});
+
+/* ---- render track grid (filterable) ---- */
+const trackGrid = document.getElementById('trackGrid');
+function renderTracks(){
+  trackGrid.innerHTML = '';
+  TRACKS.forEach((t, i) => {
+    if (activeCat !== 'all' && t.category !== activeCat) return;
+    const card = document.createElement('div');
+    card.className = 'track-card';
+    card.style.setProperty('--cover1', t.cover1);
+    card.style.setProperty('--cover2', t.cover2);
+    card.innerHTML = `
+      <div class="track-cover">
+        ${t.cover ? `<img src="${t.cover}" alt="${t.title} cover">` : ''}
+        <div class="play-dot"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="track-info">
+        <div>
+          <div class="name">${t.title}</div>
+          <div class="artist">${t.artist || 'Reza Bakhshi RBK'}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="len">${t.duration}</div>
+          <a class="dl-btn" href="${t.src}" download title="Download" aria-label="Download ${t.title}">
+            <svg viewBox="0 0 24 24"><path d="M12 3v10.6l3.3-3.3 1.4 1.4L12 17l-4.7-5.3 1.4-1.4 3.3 3.3V3zM5 19h14v2H5z"/></svg>
+          </a>
+        </div>
+      </div>`;
+    card.querySelector('.track-cover').addEventListener('click', () => playTrack(i));
+    card.querySelector('.dl-btn').addEventListener('click', e => e.stopPropagation());
+    trackGrid.appendChild(card);
+  });
+}
+renderTracks();
+
+/* ---- player logic ---- */
+const audio = document.getElementById('audio');
+const playBtn = document.getElementById('playBtn');
+const seek = document.getElementById('seek');
+const curTime = document.getElementById('curTime');
+const durTime = document.getElementById('durTime');
+const volume = document.getElementById('volume');
+const heartBtn = document.getElementById('heartBtn');
+let current = 0;
+let liked = false;
+
+function fmt(s){
+  if (!isFinite(s)) return "0:00";
+  const m = Math.floor(s/60), sec = Math.floor(s%60);
+  return m + ":" + String(sec).padStart(2,'0');
+}
+
+function playTrack(i){
+  current = i;
+  const t = TRACKS[i];
+  document.getElementById('playerTitle').textContent = t.title;
+  document.getElementById('playerArtist').textContent = t.artist || 'Reza Bakhshi RBK';
+  if (t.src){
+    audio.src = t.src;
+    audio.play().catch(()=>{});
+    setPlayIcon(true);
+  } else {
+    setPlayIcon(false);
+    alert("این آهنگ هنوز فایل ندارد. یک فایل mp3 به پوشه music اضافه کن و مسیرش را در لیست TRACKS داخل کد بنویس.");
+  }
+}
+
+function setPlayIcon(isPlaying){
+  playBtn.innerHTML = isPlaying
+    ? '<svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>'
+    : '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+}
+
+playBtn.addEventListener('click', () => {
+  if (!audio.src){ playTrack(current); return; }
+  if (audio.paused){ audio.play(); setPlayIcon(true); }
+  else { audio.pause(); setPlayIcon(false); }
+});
+
+document.getElementById('nextBtn').addEventListener('click', () => playTrack((current+1) % TRACKS.length));
+document.getElementById('prevBtn').addEventListener('click', () => playTrack((current-1+TRACKS.length) % TRACKS.length));
+
+audio.addEventListener('timeupdate', () => {
+  if (!audio.duration) return;
+  seek.value = (audio.currentTime / audio.duration) * 100;
+  curTime.textContent = fmt(audio.currentTime);
+  durTime.textContent = fmt(audio.duration);
+});
+seek.addEventListener('input', () => {
+  if (audio.duration) audio.currentTime = (seek.value/100) * audio.duration;
+});
+volume.addEventListener('input', () => audio.volume = volume.value);
+audio.volume = 0.8;
+
+heartBtn.addEventListener('click', () => {
+  liked = !liked;
+  heartBtn.textContent = liked ? '♥' : '♡';
+  heartBtn.classList.toggle('on', liked);
+});
+</script>
+</body>
+</html>
