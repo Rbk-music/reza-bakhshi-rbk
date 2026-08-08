@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Library — Reza Bakhshi RBK</title>
+<link rel="icon" href="logo.jpg">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Lalezar&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<header>
+  <div class="brand">
+    <img src="logo.jpg" alt="Reza Bakhshi RBK logo">
+    <span class="brand-name">REZA.BAKHSHI.RBK</span>
+  </div>
+  <nav class="links" id="navLinks">
+    <a href="index.html">HOME</a>
+    <a href="music.html">MUSIC</a>
+    <a href="videos.html">VIDEOS</a>
+    <a href="quotes.html" class="active">QUOTES</a>
+    <a href="index.html#about">ABOUT</a>
+   
+    <div class="mobile-socials">
+      <a href="https://instagram.com/reza.bakhshi.rbk" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+      <a href="https://t.me/RBK_Realm" target="_blank" aria-label="Telegram">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M21.5 4.5 2.7 11.9c-1.1.45-1.1 1.06-.2 1.34l4.8 1.5 1.9 5.6c.2.6.6.8 1.1.4l2.6-2.2 4.7 3.5c.9.5 1.5.24 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.6Z"/></svg>
+      </a>
+     
+    </div>
+  </nav>
+  <div style="display:flex;align-items:center;gap:18px;">
+    <div class="socials">
+      <a href="https://instagram.com/reza.bakhshi.rbk" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+      <a href="https://t.me/RBK_Realm" target="_blank" aria-label="Telegram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.7 11.9c-1.1.45-1.1 1.06-.2 1.34l4.8 1.5 1.9 5.6c.2.6.6.8 1.1.4l2.6-2.2 4.7 3.5c.9.5 1.5.24 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.6Z"/></svg>
+      </a>
+      
+    </div>
+    <button class="burger" id="burger" aria-label="menu">☰</button>
+  </div>
+</header>
+
+<div class="page-hero">
+  <a href="index.html" class="back-link">
+    <svg viewBox="0 0 24 24"><path d="M20 11H7.8l4.6-4.6L11 5l-7 7 7 7 1.4-1.4L7.8 13H20z"/></svg>
+    بازگشت به صفحه اصلی
+  </a>
+  <div class="eyebrow">WORDS & LYRICS</div>
+  <h1>متن‌ها و دوبیتی‌ها</h1>
+  <p>جمله‌های خاص، دوبیتی و تکه‌های ناب — دسته‌بندی‌شده، برای هر حس یه چیزی.</p>
+</div>
+
+<section class="section" id="quotes" style="padding-top:20px;">
+  <div class="cat-tabs" id="catTabs"></div>
+  <div class="quote-grid" id="quoteGrid"></div>
+</section>
+
+<footer>© <span id="year"></span> Reza Bakhshi RBK. All rights reserved.</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---- burger menu ---- */
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+/* =========================================================
+   EDIT THESE LISTS to add your own short texts / do-beyti /
+   quotes. Add as many as you like, and give each one one or
+   more categories from CATEGORIES below.
+========================================================= */
+const CATEGORIES = [
+  { key: "all",          label: "همه" },
+  { key: "doubeyti",     label: "دوبیتی" },
+  { key: "quote",        label: "جملات خاص" },
+  { key: "love",         label: "عاشقانه" },
+  { key: "sad",          label: "غمگین" },
+  { key: "motivational", label: "انگیزشی" }
+];
+
+const QUOTES = [
+  { text: "تورا جانم صدا کردم ‌ولیکن برتر از جانی مگر جان بی تو میماند در این تندیس انسانی", author: "", category: ["love"] },
+  { text: "یه جمله‌ی خاص دیگه اینجا بنویس", author: "", category: ["quote", "motivational"] },
+  { text: "یه دوبیتی یا جمله‌ی عاشقانه اینجا بنویس", author: "", category: ["doubeyti", "love"] }
+];
+
+/* ---- category tabs ---- */
+const catTabs = document.getElementById('catTabs');
+let activeCat = 'all';
+CATEGORIES.forEach(c => {
+  const btn = document.createElement('button');
+  btn.className = 'cat-tab' + (c.key === 'all' ? ' active' : '');
+  btn.textContent = c.label;
+  btn.addEventListener('click', () => {
+    activeCat = c.key;
+    catTabs.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderQuotes();
+  });
+  catTabs.appendChild(btn);
+});
+
+/* ---- render quote grid (filterable) ---- */
+const quoteGrid = document.getElementById('quoteGrid');
+function renderQuotes(){
+  quoteGrid.innerHTML = '';
+  QUOTES.forEach(q => {
+    if (activeCat !== 'all' && !q.category.includes(activeCat)) return;
+    const card = document.createElement('div');
+    card.className = 'quote-card';
+    card.innerHTML = `
+      <p class="quote-text">${q.text}</p>
+      ${q.author ? `<span class="quote-author">— ${q.author}</span>` : ''}
+    `;
+    quoteGrid.appendChild(card);
+  });
+}
+renderQuotes();
+</script>
+</body>
+</html>
