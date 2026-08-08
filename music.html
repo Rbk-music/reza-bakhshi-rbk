@@ -7,7 +7,7 @@
 <link rel="icon" href="logo.jpg">
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Lalezar&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -22,18 +22,17 @@
     <a href="index.html">HOME</a>
     <a href="music.html" class="active">MUSIC</a>
     <a href="videos.html">VIDEOS</a>
+	  <a href="quotes.html">QUOTES</a>
     <a href="index.html#about">ABOUT</a>
-    <a href="index.html#contact">CONTACT</a>
+  
     <div class="mobile-socials">
       <a href="https://instagram.com/reza.bakhshi.rbk" target="_blank" aria-label="Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
       </a>
-      <a href="https://t.me/reza_bakhshi_rbk" target="_blank" aria-label="Telegram">
+      <a href="https://t.me/RBK_Realm" target="_blank" aria-label="Telegram">
         <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M21.5 4.5 2.7 11.9c-1.1.45-1.1 1.06-.2 1.34l4.8 1.5 1.9 5.6c.2.6.6.8 1.1.4l2.6-2.2 4.7 3.5c.9.5 1.5.24 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.6Z"/></svg>
       </a>
-      <a href="https://youtube.com/@reza.bakhshi.rbk" target="_blank" aria-label="YouTube">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M22 12s0-3.4-.4-5a3 3 0 0 0-2.1-2.1C17.9 4.5 12 4.5 12 4.5s-5.9 0-7.5.4A3 3 0 0 0 2.4 7C2 8.6 2 12 2 12s0 3.4.4 5a3 3 0 0 0 2.1 2.1c1.6.4 7.5.4 7.5.4s5.9 0 7.5-.4A3 3 0 0 0 21.6 17c.4-1.6.4-5 .4-5ZM10 15.5v-7l6 3.5Z"/></svg>
-      </a>
+     
     </div>
   </nav>
   <div style="display:flex;align-items:center;gap:18px;">
@@ -41,12 +40,10 @@
       <a href="https://instagram.com/reza.bakhshi.rbk" target="_blank" aria-label="Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
       </a>
-      <a href="https://t.me/reza_bakhshi_rbk" target="_blank" aria-label="Telegram">
+      <a href="https://t.me/RBK_Realm" target="_blank" aria-label="Telegram">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.7 11.9c-1.1.45-1.1 1.06-.2 1.34l4.8 1.5 1.9 5.6c.2.6.6.8 1.1.4l2.6-2.2 4.7 3.5c.9.5 1.5.24 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.6Z"/></svg>
       </a>
-      <a href="https://youtube.com/@reza.bakhshi.rbk" target="_blank" aria-label="YouTube">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.4-.4-5a3 3 0 0 0-2.1-2.1C17.9 4.5 12 4.5 12 4.5s-5.9 0-7.5.4A3 3 0 0 0 2.4 7C2 8.6 2 12 2 12s0 3.4.4 5a3 3 0 0 0 2.1 2.1c1.6.4 7.5.4 7.5.4s5.9 0 7.5-.4A3 3 0 0 0 21.6 17c.4-1.6.4-5 .4-5ZM10 15.5v-7l6 3.5Z"/></svg>
-      </a>
+
     </div>
     <button class="burger" id="burger" aria-label="menu">☰</button>
   </div>
@@ -119,31 +116,102 @@ burger.addEventListener('click', () => navLinks.classList.toggle('open'));
    below (e.g. "travel", "remix", "old", "chill").
 ========================================================= */
 const CATEGORIES = [
-  { key: "all",    label: "همه" },
-  { key: "travel", label: "سفر" },
-  { key: "remix",  label: "ریمیکس" },
-  { key: "old",    label: "قدیمی" },
-  { key: "me",    label: "من" },
-	{ key: "khas",  label: "خاص" },
-  { key: "chill",  label: "آرامش‌بخش" }
-	
+  { key: "all", label: "همه" },
+  { key: "new", label: "جدید" },
+  { key: "old", label: "قدیمی" },
+  { key: "pop", label: "پاپ" },
+  { key: "rap", label: "رپ" },
+  { key: "persian-rap", label: "رپ فارسی" },
+  { key: "freestyle", label: "فری‌استایل" },
+  { key: "storytelling-rap", label: "رپ روایی" },
+  { key: "traditional", label: "سنتی" },
+  { key: "folk", label: "فولک / محلی" },
+  { key: "edm", label: "EDM / دنس" },
+  { key: "instrumental", label: "بی‌کلام" },
+  { key: "remix", label: "ریمیکس" },
+  { key: "persian", label: "فارسی" },
+  { key: "english", label: "انگلیسی" },
+  { key: "turkish", label: "ترکی" },
+  { key: "happy", label: "شاد" },
+  { key: "sad", label: "غمگین" },
+  { key: "chill", label: "آرامش‌بخش" },
+  { key: "energetic", label: "پرانرژی" },
+  { key: "romantic", label: "عاشقانه" },
+  { key: "study-sleep", label: "مطالعه و خواب" }
 ];
 
 const TRACKS = [
+
+  { title: "Roozegare Gharib",   
+   artist: "Alireza Ghorbani", 
+   src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPPanMIc0iQMYAlLyqH2iVlsL7gFGEAAuEMAAIkfghTCtc555JCGsc9BA/music/file_249.mp3", 
+   cover: "https://search.eitaa.com/?url=https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAPZanSarPZy0pRoIVztapZzFG9dXCkAAkgOaxtkY6lTpNl4SqHdwSoBAAMCAAN5AAM9BA/photos/file_262.jpg", cover1:"#3a2a66", cover2:"#0e0c19", 
+   duration: "06:36", category: ["travel", "love", "sad"] },
+  { title: "Dele man",    
+   artist: "Canis & mehrad hidden", 
+   src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPRanMOFkHcYhcST6lcjM9PcXOp9uYAAsYUAALxvMFQMhrZaBGhXzo9BA/music/file_250.mp3", 
+   cover: "https://search.eitaa.com/?url=https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAPdanSc0Vx4cJ2LR08vBFzdL9CRnwsAAlEOaxtkY6lT9AABKdoC5vabAQADAgADeQADPQQ/photos/file_272.jpg", cover1:"#7047c9", cover2:"#171226", 
+   duration: "03:03", category: ["travel", "love"] },
+   { title: "Fou",    
+   artist: "Shahib Najafi", 
+   src: "https://search.eitaa.com/?url=https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPVanSWeTiU0_iPiV7Lu7GvfVCBAa4AAiMFAALld_hTHsKIoXCW3Hw9BA/music/file_257.mp3", 
+   cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAPbanSb2MFrHCrm8Lu0g95C5ejl8xEAAkoOaxtkY6lTOzN89yLMtkgBAAMCAAN5AAM9BA/photos/file_269.jpg", cover1:"#7047c9", cover2:"#171226", 
+   duration: "03:23", category: ["love"] },
+  { title: "In your Corner",    
+   artist: "RMK MUSIC", 
+   src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgIAAxkBAAPNanMHRGiZp6Bf9MHHOVjJuINVnuYAAgxVAALY41hJdwJgRYVLPMI9BA/music/file_248", cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAP5aneKbePj9RTP5xodampijE_o41QAAo4QaxuqCLhTl4aYpTGcN58BAAMCAAN5AAM9BA/photos/file_316.jpg", 
+   cover1:"#4b2f8f", cover2:"#120e20", 
+   duration: "03:59", category: ["khas", "english"] },
   { title: "Akharin nameh",
    artist: "Siavash Ghomayshi",
    src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPTanQucSejM16h02vHOlqW_8Zm_YEAAgYHAALfx61QWTcpVVnFl_g9BA/music/file_252.mp3",
    cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAPXanSaM9bXxlYmsRZQN62D4i8i7bQAAkcOaxtkY6lTh2dOu-xfR8IBAAMCAAN5AAM9BA/photos/file_260.jpg", cover1:"#5b3aa8", cover2:"#150f27",
-   duration: "06:32" , category: ["travel", "old"] },
-  { title: "Ask Temsah 2",   artist: "Dj loni", src: "https://search.eitaa.com/?url=https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPjana2b_9spcD_AZzwlQhGBRGc5ZIAAjcuAAJpQKlT0AUqEIgfdxg9BA/music/file_278.mp3", cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAPlana2kQV1VLmhXXndwWKr0w_vnbEAAmcQaxuCGrlTAZMFltOyP0MBAAMCAAN5AAM9BA/photos/file_281.jpg", cover1:"#3a2a66", cover2:"#0e0c19", duration: "06:20", category: "remix" },
-  { title: "Ashk Temsah",    artist: "Mix locky", src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPnana3bI5BxRJIUup3gzl5KNqc2HUAAjguAAJpQKlTA-jUWMBw2i09BA/music/file_283.mp3", cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAPpana5hW5iJXF7fhrNkgmIGS3AA_8AAmgQaxuCGrlTj1yeqLofuC0BAAMCAAN5AAM9BA/photos/file_285.jpg", cover1:"#7047c9", cover2:"#171226", duration: "04:04", category: "remix" },
-  { title: "Biliyorsun", artist: "Sezen aksu", src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPranbENJY23ya0cZhWad-DJGHszhoAAmcGAAIlVMlS_VcirKfcxnw9BA/music/file_294.mp3", cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AAMCBAADGQEAA-tqdsQ0ljbfJrRxmFZp34MkYezOGgACZwYAAiVUyVL9VyKsp9zGfAEAB3MAAz0E/thumbnails/file_293.jpg", cover1:"#5b3aa8", cover2:"#150f27", duration: "04:04", category: "khas" },
-  { title: "Music Reza Rimix", artist: "Sorena RBK", src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPtanbKbk9Of_Q3ZtQtZ5KXWJRFOS4AAk0WAAIZTGhT1r4_7ttzcas9BA/music/file_295.mp3",cover:"https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAP1anbXyTpSii-mqC0oJew1eNoPx-sAAoQQaxuCGrlTBUs8AgrgTG4BAAMCAAN5AAM9BA/photos/file_304.jpg", cover1:"#3a2a66", cover2:"#0e0c19", duration: "03:55", category: "remix" },
-  {title: "Khoone Khorshid", artist: "RBK music", src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPvanbLJpE9bfIzAfInEYgxQl5_TqEAAmITAALqKVFSp7uJjwSz7tk9BA/music/file_296.mp3", cover: "", cover1:"#7047c9", cover2:"#171226", duration: "04:57", category: "remix" },
-  {title: "Still", artist: "Karol G, Bruno Mars", src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPzanbL_bLEBrPGDi28JWVi4JFmD24AAiciAAIUDbFT0LAIDrfVemU9BA/music/file_300.mp3", cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AAMCBAADGQEAA_Nqdsv9ssQGs8YOLbwlZWLgkWYPbgACJyIAAhQNsVPQsAgOt9V6ZQEAB3MAAz0E/thumbnails/file_299.jpg", cover1:"#5b3aa8", cover2:"#150f27", duration: "03:40", category: "khas" },
-  {title: "Beautiful", artist: "NF", src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPxanbLoCKLnc0qMBI9BgABcKImbGJ9AAK0HAACa-6oU0szwVCmZfCiPQQ/music/file_298.mp3", cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AAMCBAADGQEAA_FqdsugIoudzSowEj0GAAFwoiZsYn0AArQcAAJr7qhTSzPBUKZl8KIBAAdtAAM9BA/thumbnails/file_297.jpg", cover1:"#3a2a66", cover2:"#0e0c19", duration: "04:28", category: "khas" },
+   duration: "06:32" ,
+   category: ["travel", "old"] },
+  { title: "Ask Temsah 2",
+   artist: "Dj loni",
+   src: "https://search.eitaa.com/?url=https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPjana2b_9spcD_AZzwlQhGBRGc5ZIAAjcuAAJpQKlT0AUqEIgfdxg9BA/music/file_278.mp3",
+   cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAPlana2kQV1VLmhXXndwWKr0w_vnbEAAmcQaxuCGrlTAZMFltOyP0MBAAMCAAN5AAM9BA/photos/file_281.jpg", cover1:"#3a2a66", cover2:"#0e0c19",
+   duration: "06:20",
+   category: "remix" },
+  { title: "Ashk Temsah",    
+   artist: "Mix locky", 
+   src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPnana3bI5BxRJIUup3gzl5KNqc2HUAAjguAAJpQKlTA-jUWMBw2i09BA/music/file_283.mp3", 
+   cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAPpana5hW5iJXF7fhrNkgmIGS3AA_8AAmgQaxuCGrlTj1yeqLofuC0BAAMCAAN5AAM9BA/photos/file_285.jpg", cover1:"#7047c9", cover2:"#171226", 
+   duration: "04:04", 
+   category: "remix" },
+  { title: "Biliyorsun", 
+   artist: "Sezen aksu", 
+   src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPranbENJY23ya0cZhWad-DJGHszhoAAmcGAAIlVMlS_VcirKfcxnw9BA/music/file_294.mp3", 
+   cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAP7aneK2n1AvTuVCJORP02VqBjwv6cAAo8QaxuqCLhTva9rEG1LmEMBAAMCAAN5AAM9BA/photos/file_320.jpg", cover1:"#5b3aa8", cover2:"#150f27", 
+   duration: "04:04", category: "english" },
+  { title: "Music Reza Rimix", 
+   artist: "Sorena RBK", 
+   src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPtanbKbk9Of_Q3ZtQtZ5KXWJRFOS4AAk0WAAIZTGhT1r4_7ttzcas9BA/music/file_295.mp3",
+   cover:"https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAP1anbXyTpSii-mqC0oJew1eNoPx-sAAoQQaxuCGrlTBUs8AgrgTG4BAAMCAAN5AAM9BA/photos/file_304.jpg", cover1:"#3a2a66", cover2:"#0e0c19", 
+   duration: "03:55", 
+   category: "remix" },
+  {title: "Khoone Khorshid", 
+   artist: "RBK music", 
+   src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPvanbLJpE9bfIzAfInEYgxQl5_TqEAAmITAALqKVFSp7uJjwSz7tk9BA/music/file_296.mp3", 
+   cover: "", cover1:"#7047c9", cover2:"#171226", 
+   duration: "04:57", 
+   category: "remix" },
+  {title: "Still", 
+   artist: "Karol G, Bruno Mars", 
+   src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPzanbL_bLEBrPGDi28JWVi4JFmD24AAiciAAIUDbFT0LAIDrfVemU9BA/music/file_300.mp3", 
+   cover: "https://search.eitaa.com/?url=https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAP3aneJ7micBumcg0ev5IL6-hgkZ04AAo0QaxuqCLhTcvEkrvOND8gBAAMCAAN5AAM9BA/photos/file_310.jpg", cover1:"#5b3aa8", cover2:"#150f27", 
+   duration: "03:40", 
+   category:"english" },
+  {title: "Beautiful",
+  artist: "NF", 
+   src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPxanbLoCKLnc0qMBI9BgABcKImbGJ9AAK0HAACa-6oU0szwVCmZfCiPQQ/music/file_298.mp3", 
+   cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAP9aneLLd1EMSq_nT7H4RME37v-AikAApAQaxuqCLhTGIku_hkmjE4BAAMCAAN5AAM9BA/photos/file_325.jpg", cover1:"#3a2a66", cover2:"#0e0c19", 
+   duration: "04:28", 
+   category: "english" },
   { title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
-  { title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+ 
+	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
 	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
 	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
 	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
