@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Video Library — Reza Bakhshi RBK</title>
+<title>Music Library — Reza Bakhshi RBK</title>
 <link rel="icon" href="logo.jpg">
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=Lalezar&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -22,17 +22,14 @@
     <a href="index.html">HOME</a>
     <a href="music.html">MUSIC</a>
     <a href="videos.html" class="active">VIDEOS</a>
+    <a href="quotes.html">QUOTES</a>
     <a href="index.html#about">ABOUT</a>
-    <a href="index.html#contact">CONTACT</a>
     <div class="mobile-socials">
       <a href="https://instagram.com/reza.bakhshi.rbk" target="_blank" aria-label="Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
       </a>
-      <a href="https://t.me/reza_bakhshi_rbk" target="_blank" aria-label="Telegram">
+      <a href="https://t.me/RBK_Realm" target="_blank" aria-label="Telegram">
         <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M21.5 4.5 2.7 11.9c-1.1.45-1.1 1.06-.2 1.34l4.8 1.5 1.9 5.6c.2.6.6.8 1.1.4l2.6-2.2 4.7 3.5c.9.5 1.5.24 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.6Z"/></svg>
-      </a>
-      <a href="https://youtube.com/@reza.bakhshi.rbk" target="_blank" aria-label="YouTube">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M22 12s0-3.4-.4-5a3 3 0 0 0-2.1-2.1C17.9 4.5 12 4.5 12 4.5s-5.9 0-7.5.4A3 3 0 0 0 2.4 7C2 8.6 2 12 2 12s0 3.4.4 5a3 3 0 0 0 2.1 2.1c1.6.4 7.5.4 7.5.4s5.9 0 7.5-.4A3 3 0 0 0 21.6 17c.4-1.6.4-5 .4-5ZM10 15.5v-7l6 3.5Z"/></svg>
       </a>
     </div>
   </nav>
@@ -41,11 +38,8 @@
       <a href="https://instagram.com/reza.bakhshi.rbk" target="_blank" aria-label="Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
       </a>
-      <a href="https://t.me/reza_bakhshi_rbk" target="_blank" aria-label="Telegram">
+      <a href="https://t.me/RBK_Realm" target="_blank" aria-label="Telegram">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 4.5 2.7 11.9c-1.1.45-1.1 1.06-.2 1.34l4.8 1.5 1.9 5.6c.2.6.6.8 1.1.4l2.6-2.2 4.7 3.5c.9.5 1.5.24 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.6Z"/></svg>
-      </a>
-      <a href="https://youtube.com/@reza.bakhshi.rbk" target="_blank" aria-label="YouTube">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.4-.4-5a3 3 0 0 0-2.1-2.1C17.9 4.5 12 4.5 12 4.5s-5.9 0-7.5.4A3 3 0 0 0 2.4 7C2 8.6 2 12 2 12s0 3.4.4 5a3 3 0 0 0 2.1 2.1c1.6.4 7.5.4 7.5.4s5.9 0 7.5-.4A3 3 0 0 0 21.6 17c.4-1.6.4-5 .4-5ZM10 15.5v-7l6 3.5Z"/></svg>
       </a>
     </div>
     <button class="burger" id="burger" aria-label="menu">☰</button>
@@ -59,7 +53,7 @@
   </a>
   <div class="eyebrow">FULL VIDEO LIBRARY</div>
   <h1>کتابخانه کامل ویدیو</h1>
-  <p>همه‌ی موزیک ویدیوها و کلیپ‌ها، دسته‌بندی‌شده.</p>
+  <p dir="rtl">همه‌ی موزیک ویدیوها و کلیپ‌ها، دسته‌بندی‌شده.</p>
 </div>
 
 <section class="section" id="videos" style="padding-top:20px;">
@@ -83,23 +77,27 @@ burger.addEventListener('click', () => navLinks.classList.toggle('open'));
    src: EITHER a full link (like your reza-board worker link)
    OR a relative path to a file next to this html file, e.g.
    "videos/track1.mp4" (put the actual file in a "videos" folder).
-   category: must match one of the "key" values in CATEGORIES below.
+
+   category: an ARRAY of one or more keys from CATEGORIES below.
+   A video can belong to several categories at once, e.g.
+   category: ["official", "old"]
 ========================================================= */
 const CATEGORIES = [
-  { key: "all",     label: "همه" },
-  { key: "official",label: "موزیک ویدیو" },
-  { key: "remix",   label: "ریمیکس" },
-  { key: "bts",     label: "پشت صحنه" },
-  { key: "old",     label: "قدیمی" }
+  { key: "all",      label: "همه" },
+  { key: "official", label: "موزیک ویدیو" },
+  { key: "remix",    label: "ریمیکس" },
+  { key: "bts",      label: "پشت صحنه" },
+  { key: "old",      label: "قدیمی" },
+  { key: "new",      label: "جدید" }
 ];
 
 const VIDEOS = [
-  { title: "Moonlight — Official Video", src: "", category: "official" },
-  { title: "Eclipse — Visualizer", src: "", category: "remix" },
-  { title: "Beyond — Behind the Scenes", src: "", category: "bts" },
-  { title: "Video 4", src: "", category: "official" },
-  { title: "Video 5", src: "", category: "remix" },
-  { title: "Video 6", src: "", category: "old" }
+  { title: "Moonlight — Official Video",     src: "", category: ["official", "new"] },
+  { title: "Eclipse — Visualizer",           src: "", category: ["remix"] },
+  { title: "Beyond — Behind the Scenes",     src: "", category: ["bts"] },
+  { title: "Video 4",                        src: "", category: ["official"] },
+  { title: "Video 5",                        src: "", category: ["remix", "new"] },
+  { title: "Video 6",                        src: "", category: ["old"] }
 ];
 
 /* ---- category tabs ---- */
@@ -123,8 +121,11 @@ const videoGrid = document.getElementById('videoGrid');
 function renderVideos(){
   videoGrid.innerHTML = '';
   VIDEOS.forEach(v => {
-    if (activeCat !== 'all' && v.category !== activeCat) return;
-    const catLabel = (CATEGORIES.find(c => c.key === v.category) || {}).label || '';
+    if (activeCat !== 'all' && !v.category.includes(activeCat)) return;
+    const catLabel = v.category
+      .map(k => (CATEGORIES.find(c => c.key === k) || {}).label)
+      .filter(Boolean)
+      .join(' · ');
     const card = document.createElement('div');
     card.className = 'video-card';
     card.innerHTML = `
