@@ -9,8 +9,8 @@
   --text:#f2f0f7;
   --text-dim:#a6a2b8;
   --text-faint:#615c78;
-  --font-display:'Space Grotesk',sans-serif;
-  --font-body:'Inter',sans-serif;
+  --font-display:'Space Grotesk','Lalezar',sans-serif;
+  --font-body:'Inter','Vazirmatn',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -216,24 +216,13 @@ nav.links a.active,nav.links a:hover{color:#fff;border-color:var(--violet);}
 @media (max-width:900px){.about-wrap{grid-template-columns:1fr;}}
 
 /* ===== VIDEOS ===== */
-.video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:24px;}
+.video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;}
 .video-card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--bg-card);}
 .video-card .frame-wrap{position:relative;aspect-ratio:9/16;background:#000;}
 .video-card video{width:100%;height:100%;display:block;object-fit:cover;}
 .video-card .vt{padding:14px 18px;font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:10px;}
 .video-card .vt .cat{display:block;font-size:11px;font-weight:500;color:var(--text-faint);margin-top:3px;}
-/* تنظیم ویدیو در حالت تمام‌صفحه */
-video:fullscreen {
-  object-fit: contain !important;
-}
 
-video:-webkit-full-screen {
-  object-fit: contain !important;
-}
-
-video:-moz-full-screen {
-  object-fit: contain !important;
-}
 .dl-btn{
   flex-shrink:0;width:36px;height:36px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
@@ -261,6 +250,16 @@ video:-moz-full-screen {
 .contact-side p{color:var(--text-dim);font-size:15px;}
 @media (max-width:900px){.contact-wrap{grid-template-columns:1fr;}}
 
+.quote-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;}
+.quote-card{
+  background:var(--bg-card);border:1px solid var(--line);border-radius:16px;
+  padding:28px 24px;display:flex;flex-direction:column;gap:14px;
+  transition:transform .25s ease,border-color .25s ease;
+}
+.quote-card:hover{transform:translateY(-6px);border-color:var(--violet);}
+.quote-text{font-family:var(--font-body);font-size:17px;line-height:1.9;direction:rtl;text-align:right;}
+.quote-author{color:var(--text-dim);font-size:13px;align-self:flex-end;direction:rtl;text-align:right;}
+
 footer{
   position:relative;z-index:1;text-align:center;padding:30px;color:var(--text-faint);font-size:12px;
   border-top:1px solid var(--line);
@@ -281,11 +280,11 @@ footer{
 .player-heart.on{color:var(--violet);}
 
 .p-center{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0;}
-.p-controls{display:flex;align-items:center;gap:18px;}
+.p-controls{display:flex;align-items:center;gap:24px;}
 .p-controls button{background:none;border:none;color:var(--text);cursor:pointer;display:flex;align-items:center;}
-.p-controls svg{width:16px;height:16px;fill:currentColor;}
-.p-play{width:38px;height:38px;border-radius:50%;background:var(--violet);display:flex;align-items:center;justify-content:center;}
-.p-play svg{width:14px;height:14px;}
+.p-controls svg{width:22px;height:22px;fill:currentColor;}
+.p-play{width:52px;height:52px;border-radius:50%;background:var(--violet);display:flex;align-items:center;justify-content:center;}
+.p-play svg{width:20px;height:20px;}
 .p-seek{display:flex;align-items:center;gap:10px;width:100%;max-width:520px;}
 .p-seek span{font-size:11px;color:var(--text-faint);width:36px;}
 .p-seek input[type=range]{flex:1;}
@@ -297,9 +296,9 @@ input[type=range]::-webkit-slider-thumb{
   -webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:var(--violet);cursor:pointer;
 }
 
-.p-right{display:flex;align-items:center;gap:10px;width:120px;justify-content:flex-end;flex-shrink:0;}
-.p-right svg{width:14px;height:14px;fill:var(--text-dim);}
-.p-right input[type=range]{width:70px;}
+.p-right{display:flex;align-items:center;gap:12px;width:140px;justify-content:flex-end;flex-shrink:0;}
+.p-right svg{width:20px;height:20px;fill:var(--text-dim);}
+.p-right input[type=range]{width:80px;}
 
 @media (max-width:760px){
   .player{padding:0 14px;gap:10px;height:88px;}
@@ -311,4 +310,16 @@ input[type=range]::-webkit-slider-thumb{
   .p-controls svg{width:20px;height:20px;}
   .p-play{width:46px;height:46px;}
   .p-play svg{width:18px;height:18px;}
+}
+/* تنظیم ویدیو در حالت تمام‌صفحه */
+video:fullscreen {
+  object-fit: contain !important;
+}
+
+video:-webkit-full-screen {
+  object-fit: contain !important;
+}
+
+video:-moz-full-screen {
+  object-fit: contain !important;
 }
