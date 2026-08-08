@@ -124,21 +124,42 @@ const CATEGORIES = [
   { key: "remix",  label: "ریمیکس" },
   { key: "old",    label: "قدیمی" },
   { key: "me",    label: "من" },
+	{ key: "khas",  label: "خاص" },
   { key: "chill",  label: "آرامش‌بخش" }
 	
 ];
 
 const TRACKS = [
-  { title: "Moonlight", artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#5b3aa8", cover2:"#150f27", duration: "03:28", category: "travel" },
-  { title: "Eclipse",   artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "04:12", category: "remix" },
-  { title: "Beyond",    artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#7047c9", cover2:"#171226", duration: "03:54", category: "old" },
-  { title: "Aurora",    artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#4b2f8f", cover2:"#120e20", duration: "02:59", category: "chill" },
-  { title: "Track 5",   artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#5b3aa8", cover2:"#150f27", duration: "00:00", category: "travel" },
-  { title: "Track 6",   artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
-  { title: "Track 7",   artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#7047c9", cover2:"#171226", duration: "00:00", category: "old" },
-  { title: "Track 8",   artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#4b2f8f", cover2:"#120e20", duration: "00:00", category: "chill" },
-  { title: "Track 9",   artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#5b3aa8", cover2:"#150f27", duration: "00:00", category: "travel" },
-  { title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" }
+  { title: "Akharin nameh",
+   artist: "Siavash Ghomayshi",
+   src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPTanQucSejM16h02vHOlqW_8Zm_YEAAgYHAALfx61QWTcpVVnFl_g9BA/music/file_252.mp3",
+   cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAPXanSaM9bXxlYmsRZQN62D4i8i7bQAAkcOaxtkY6lTh2dOu-xfR8IBAAMCAAN5AAM9BA/photos/file_260.jpg", cover1:"#5b3aa8", cover2:"#150f27",
+   duration: "06:32" , category: ["travel", "old"] },
+  { title: "Ask Temsah 2",   artist: "Dj loni", src: "https://search.eitaa.com/?url=https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPjana2b_9spcD_AZzwlQhGBRGc5ZIAAjcuAAJpQKlT0AUqEIgfdxg9BA/music/file_278.mp3", cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAPlana2kQV1VLmhXXndwWKr0w_vnbEAAmcQaxuCGrlTAZMFltOyP0MBAAMCAAN5AAM9BA/photos/file_281.jpg", cover1:"#3a2a66", cover2:"#0e0c19", duration: "06:20", category: "remix" },
+  { title: "Ashk Temsah",    artist: "Mix locky", src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPnana3bI5BxRJIUup3gzl5KNqc2HUAAjguAAJpQKlTA-jUWMBw2i09BA/music/file_283.mp3", cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAPpana5hW5iJXF7fhrNkgmIGS3AA_8AAmgQaxuCGrlTj1yeqLofuC0BAAMCAAN5AAM9BA/photos/file_285.jpg", cover1:"#7047c9", cover2:"#171226", duration: "04:04", category: "remix" },
+  { title: "Biliyorsun", artist: "Sezen aksu", src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPranbENJY23ya0cZhWad-DJGHszhoAAmcGAAIlVMlS_VcirKfcxnw9BA/music/file_294.mp3", cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AAMCBAADGQEAA-tqdsQ0ljbfJrRxmFZp34MkYezOGgACZwYAAiVUyVL9VyKsp9zGfAEAB3MAAz0E/thumbnails/file_293.jpg", cover1:"#5b3aa8", cover2:"#150f27", duration: "04:04", category: "khas" },
+  { title: "Music Reza Rimix", artist: "Sorena RBK", src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPtanbKbk9Of_Q3ZtQtZ5KXWJRFOS4AAk0WAAIZTGhT1r4_7ttzcas9BA/music/file_295.mp3",cover:"https://reza-board.reza-bakhshi-srbk.workers.dev/download/AgACAgQAAxkBAAP1anbXyTpSii-mqC0oJew1eNoPx-sAAoQQaxuCGrlTBUs8AgrgTG4BAAMCAAN5AAM9BA/photos/file_304.jpg", cover1:"#3a2a66", cover2:"#0e0c19", duration: "03:55", category: "remix" },
+  {title: "Khoone Khorshid", artist: "RBK music", src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPvanbLJpE9bfIzAfInEYgxQl5_TqEAAmITAALqKVFSp7uJjwSz7tk9BA/music/file_296.mp3", cover: "", cover1:"#7047c9", cover2:"#171226", duration: "04:57", category: "remix" },
+  {title: "Still", artist: "Karol G, Bruno Mars", src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPzanbL_bLEBrPGDi28JWVi4JFmD24AAiciAAIUDbFT0LAIDrfVemU9BA/music/file_300.mp3", cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AAMCBAADGQEAA_Nqdsv9ssQGs8YOLbwlZWLgkWYPbgACJyIAAhQNsVPQsAgOt9V6ZQEAB3MAAz0E/thumbnails/file_299.jpg", cover1:"#5b3aa8", cover2:"#150f27", duration: "03:40", category: "khas" },
+  {title: "Beautiful", artist: "NF", src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/CQACAgQAAxkBAAPxanbLoCKLnc0qMBI9BgABcKImbGJ9AAK0HAACa-6oU0szwVCmZfCiPQQ/music/file_298.mp3", cover: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/AAMCBAADGQEAA_FqdsugIoudzSowEj0GAAFwoiZsYn0AArQcAAJr7qhTSzPBUKZl8KIBAAdtAAM9BA/thumbnails/file_297.jpg", cover1:"#3a2a66", cover2:"#0e0c19", duration: "04:28", category: "khas" },
+  { title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+  { title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" },
+	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: ["remix", "old"] },
+	{ title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" }
 ];
 
 /* ---- category tabs ---- */
@@ -162,7 +183,7 @@ const trackGrid = document.getElementById('trackGrid');
 function renderTracks(){
   trackGrid.innerHTML = '';
   TRACKS.forEach((t, i) => {
-    if (activeCat !== 'all' && t.category !== activeCat) return;
+if (activeCat !== 'all' && !t.category.includes(activeCat)) return;
     const card = document.createElement('div');
     card.className = 'track-card';
     card.style.setProperty('--cover1', t.cover1);
