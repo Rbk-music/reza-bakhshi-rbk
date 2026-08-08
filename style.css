@@ -216,13 +216,24 @@ nav.links a.active,nav.links a:hover{color:#fff;border-color:var(--violet);}
 @media (max-width:900px){.about-wrap{grid-template-columns:1fr;}}
 
 /* ===== VIDEOS ===== */
-.video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;}
+.video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:24px;}
 .video-card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--bg-card);}
-.video-card .frame-wrap{position:relative;aspect-ratio:16/9;background:#000;}
-.video-card video{width:100%;height:100%;display:block;}
+.video-card .frame-wrap{position:relative;aspect-ratio:9/16;background:#000;}
+.video-card video{width:100%;height:100%;display:block;object-fit:cover;}
 .video-card .vt{padding:14px 18px;font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:10px;}
 .video-card .vt .cat{display:block;font-size:11px;font-weight:500;color:var(--text-faint);margin-top:3px;}
+/* تنظیم ویدیو در حالت تمام‌صفحه */
+video:fullscreen {
+  object-fit: contain !important;
+}
 
+video:-webkit-full-screen {
+  object-fit: contain !important;
+}
+
+video:-moz-full-screen {
+  object-fit: contain !important;
+}
 .dl-btn{
   flex-shrink:0;width:36px;height:36px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
