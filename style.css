@@ -216,7 +216,7 @@ nav.links a.active,nav.links a:hover{color:#fff;border-color:var(--violet);}
 @media (max-width:900px){.about-wrap{grid-template-columns:1fr;}}
 
 /* ===== VIDEOS ===== */
-.video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;}
+.video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;}
 .video-card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--bg-card);}
 .video-card .frame-wrap{position:relative;aspect-ratio:9/16;background:#000;}
 .video-card video{width:100%;height:100%;display:block;object-fit:cover;}
@@ -250,7 +250,7 @@ nav.links a.active,nav.links a:hover{color:#fff;border-color:var(--violet);}
 .contact-side p{color:var(--text-dim);font-size:15px;}
 @media (max-width:900px){.contact-wrap{grid-template-columns:1fr;}}
 
-.quote-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;}
+.quote-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;}
 .quote-card{
   background:var(--bg-card);border:1px solid var(--line);border-radius:16px;
   padding:28px 24px;display:flex;flex-direction:column;gap:14px;
@@ -311,7 +311,7 @@ input[type=range]::-webkit-slider-thumb{
   .p-play{width:46px;height:46px;}
   .p-play svg{width:18px;height:18px;}
 }
-/* تنظیم ویدیو در حالت تمام‌صفحه */
+
 video:fullscreen {
   object-fit: contain !important;
 }
