@@ -118,7 +118,6 @@
 
 <footer>© <span id="year"></span> Reza Bakhshi RBK. All rights reserved.</footer>
 
-<!-- Sticky player -->
 <div class="player">
   <div class="p-track">
     <img id="playerCover" src="logo.jpg" alt="cover">
@@ -168,15 +167,7 @@ window.addEventListener('scroll', () => {
   });
 });
 
-/* =========================================================
-   FEATURED TRACKS shown on the HOME page only (a handful of
-   highlights). For the FULL categorized library your fans
-   browse, edit music.html instead — it has its own longer list.
 
-   title / src / cover / cover1 / cover2 / duration: same as before.
-   artist: the text shown under the track title — change this
-   to whatever you want (e.g. a featuring artist, or leave as is).
-========================================================= */
 const TRACKS = [
   { title: "Akharin nameh",
    artist: "Siavash Ghomayshi",
@@ -209,10 +200,7 @@ const TRACKS = [
    duration: "03:59" }
 ];
 
-/* =========================================================
-   FEATURED VIDEOS shown on the HOME page only. For the full
-   categorized library, edit videos.html.
-========================================================= */
+
 const VIDEOS = [
   { title: " ... سرنوشت را باید از سر نوشت", src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/BAACAgQAAxkBAAPfanSkTA_oixCYQc1tTeiRBIsu0iQAAqILAAJafXVSQS8GM565rRk9BA/videos/file_276.mp4" },
   
@@ -223,7 +211,7 @@ const VIDEOS = [
    { title: "ط نیستی ", src: "https://reza-board.reza-bakhshi-srbk.workers.dev/download/BAACAgQAAxkBAAIBAWp4RTykvwIV_EtE0krY_ZCSAvLhAAIMCwACfnGdUiYfySrw7sRxPQQ/videos/file_329.mp4" }
 ];
 
-/* ---- render track grid ---- */
+
 const trackGrid = document.getElementById('trackGrid');
 TRACKS.forEach((t, i) => {
   const card = document.createElement('div');
@@ -252,7 +240,7 @@ TRACKS.forEach((t, i) => {
   trackGrid.appendChild(card);
 });
 
-/* ---- render video grid ---- */
+
 const videoGrid = document.getElementById('videoGrid');
 VIDEOS.forEach(v => {
   const card = document.createElement('div');
@@ -270,7 +258,7 @@ VIDEOS.forEach(v => {
   videoGrid.appendChild(card);
 });
 
-/* ---- player logic ---- */
+
 const audio = document.getElementById('audio');
 const playBtn = document.getElementById('playBtn');
 const heroPlayBtn = document.getElementById('heroPlayBtn');
