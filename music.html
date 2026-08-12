@@ -66,7 +66,7 @@
 
 <footer>© <span id="year"></span> Reza Bakhshi RBK. All rights reserved.</footer>
 
-<!-- Sticky player -->
+
 <div class="player">
   <div class="p-track">
     <img id="playerCover" src="logo.jpg" alt="cover">
@@ -98,23 +98,12 @@
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ---- burger menu ---- */
+
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
 burger.addEventListener('click', () => navLinks.classList.toggle('open'));
 
-/* =========================================================
-   THE FULL MUSIC LIBRARY. Add as many tracks as you want here.
 
-   src: EITHER a full link (like your reza-board worker link)
-   OR a relative path to a file next to this html file, e.g.
-   "music/track1.mp3" (put the actual file in a "music" folder).
-   cover: optional path to a real image, e.g. "covers/track1.jpg".
-   Leave it "" to use the color gradient instead.
-   artist: the text shown under the track title — edit freely.
-   category: must match one of the "key" values in CATEGORIES
-   below (e.g. "travel", "remix", "old", "chill").
-========================================================= */
 const CATEGORIES = [
   { key: "all", label: "همه" },
   { key: "new", label: "جدید" },
@@ -212,7 +201,7 @@ const TRACKS = [
   { title: "Track 10",  artist: "Reza Bakhshi RBK", src: "", cover: "", cover1:"#3a2a66", cover2:"#0e0c19", duration: "00:00", category: "remix" }
 ];
 
-/* ---- category tabs ---- */
+
 const catTabs = document.getElementById('catTabs');
 let activeCat = 'all';
 CATEGORIES.forEach(c => {
@@ -228,7 +217,7 @@ CATEGORIES.forEach(c => {
   catTabs.appendChild(btn);
 });
 
-/* ---- render track grid (filterable) ---- */
+
 const trackGrid = document.getElementById('trackGrid');
 function renderTracks(){
   trackGrid.innerHTML = '';
@@ -262,7 +251,7 @@ if (activeCat !== 'all' && !t.category.includes(activeCat)) return;
 }
 renderTracks();
 
-/* ---- player logic ---- */
+
 const audio = document.getElementById('audio');
 const playBtn = document.getElementById('playBtn');
 const seek = document.getElementById('seek');
