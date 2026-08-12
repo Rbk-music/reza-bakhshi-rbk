@@ -118,6 +118,7 @@
 
 <footer>© <span id="year"></span> Reza Bakhshi RBK. All rights reserved.</footer>
 
+
 <div class="player">
   <div class="p-track">
     <img id="playerCover" src="logo.jpg" alt="cover">
@@ -149,13 +150,13 @@
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ---- burger menu ---- */
+
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
 burger.addEventListener('click', () => navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-/* ---- active nav link on scroll (only for in-page anchors) ---- */
+
 const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll', () => {
   let current = 'home';
@@ -221,7 +222,7 @@ TRACKS.forEach((t, i) => {
   card.innerHTML = `
     <div class="track-cover">
       ${t.cover ? `<img src="${t.cover}" alt="${t.title} cover">` : ''}
-      <div class="play-dot"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+   <div class="play-dot" data-idx="${i}"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
     </div>
     <div class="track-info">
       <div>
@@ -258,7 +259,6 @@ VIDEOS.forEach(v => {
   videoGrid.appendChild(card);
 });
 
-
 const audio = document.getElementById('audio');
 const playBtn = document.getElementById('playBtn');
 const heroPlayBtn = document.getElementById('heroPlayBtn');
@@ -278,6 +278,7 @@ function fmt(s){
 
 function playTrack(i){
   current = i;
+	updateCoverIcons();
   const t = TRACKS[i];
   document.getElementById('playerTitle').textContent = t.title;
   document.getElementById('playerArtist').textContent = t.artist || 'Reza Bakhshi RBK';
@@ -297,6 +298,14 @@ function setPlayIcon(isPlaying){
   playBtn.innerHTML = isPlaying
     ? '<svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>'
     : '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+}
+	function updateCoverIcons(){
+  document.querySelectorAll('.play-dot').forEach(dot => {
+    const isThisPlaying = Number(dot.dataset.idx) === current && audio && !audio.paused;
+    dot.innerHTML = isThisPlaying
+      ? '<svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>'
+      : '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+  });
 }
 
 playBtn.addEventListener('click', () => {
@@ -321,6 +330,9 @@ seek.addEventListener('input', () => {
 });
 volume.addEventListener('input', () => audio.volume = volume.value);
 audio.volume = 0.8;
+audio.addEventListener('play', updateCoverIcons);
+audio.addEventListener('pause', updateCoverIcons);
+audio.addEventListener('ended', updateCoverIcons);
 
 heartBtn.addEventListener('click', () => {
   liked = !liked;
