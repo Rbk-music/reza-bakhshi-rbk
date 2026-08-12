@@ -69,16 +69,12 @@
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ---- burger menu ---- */
+
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
 burger.addEventListener('click', () => navLinks.classList.toggle('open'));
 
-/* =========================================================
-   EDIT THESE LISTS to add your own short texts / do-beyti /
-   quotes. Add as many as you like, and give each one one or
-   more categories from CATEGORIES below.
-========================================================= */
+
 const CATEGORIES = [
   { key: "all",          label: "همه" },
   { key: "doubeyti",     label: "دوبیتی" },
@@ -103,7 +99,7 @@ const QUOTES = [
   { text: "نهنگی دید مرگش را ولی دل را به ساحل زد ؛<br>من از پایان خود آگاهم اما دوستت دارم.🤍", author: "", category: ["doubeyti", "love"] }
 ];
 
-/* ---- category tabs ---- */
+
 const catTabs = document.getElementById('catTabs');
 let activeCat = 'all';
 CATEGORIES.forEach(c => {
@@ -119,7 +115,7 @@ CATEGORIES.forEach(c => {
   catTabs.appendChild(btn);
 });
 
-/* ---- render quote grid (filterable) ---- */
+
 const quoteGrid = document.getElementById('quoteGrid');
 function renderQuotes(){
   quoteGrid.innerHTML = '';
