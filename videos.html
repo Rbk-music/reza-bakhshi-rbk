@@ -66,22 +66,12 @@
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ---- burger menu ---- */
+
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
 burger.addEventListener('click', () => navLinks.classList.toggle('open'));
 
-/* =========================================================
-   THE FULL VIDEO LIBRARY. Add as many videos as you want here.
 
-   src: EITHER a full link (like your reza-board worker link)
-   OR a relative path to a file next to this html file, e.g.
-   "videos/track1.mp4" (put the actual file in a "videos" folder).
-
-   category: an ARRAY of one or more keys from CATEGORIES below.
-   A video can belong to several categories at once, e.g.
-   category: ["official", "old"]
-========================================================= */
 const CATEGORIES = [
   { key: "all",      label: "همه" },
   { key: "official", label: "موزیک ویدیو" },
@@ -115,7 +105,7 @@ const VIDEOS = [
    { title: "Video 6",                        src: "", category: ["old"] }
 ];
 
-/* ---- category tabs ---- */
+
 const catTabs = document.getElementById('catTabs');
 let activeCat = 'all';
 CATEGORIES.forEach(c => {
@@ -131,7 +121,7 @@ CATEGORIES.forEach(c => {
   catTabs.appendChild(btn);
 });
 
-/* ---- render video grid (filterable) ---- */
+
 const videoGrid = document.getElementById('videoGrid');
 function renderVideos(){
   videoGrid.innerHTML = '';
